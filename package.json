@@ -1,7 +1,7 @@
 {
   "name": "massyx-soundboard",
   "productName": "massyx Soundboard",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "This tool will give you easy access to the massyx Soundboard",
   "main": "./app/main.js",
   "scripts": {
