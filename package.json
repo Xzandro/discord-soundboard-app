@@ -1,0 +1,74 @@
+{
+  "name": "massyx-soundboard",
+  "productName": "massyx Soundboard",
+  "version": "0.0.5",
+  "description": "This tool will give you easy access to the massyx Soundboard",
+  "main": "./app/main.js",
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "electron-rebuild -f -w massyx-soundboard",
+    "pack": "build --dir",
+    "dist:win64": "build --x64",
+    "dist:win32": "build --ia32",
+    "dist:mac": "build",
+    "dist:linux": "build",
+    "dev": "webpack --watch"
+  },
+  "build": {
+    "productName": "massyx Soundboard",
+    "appId": "com.electron.massyx-soundboard",
+    "artifactName": "${productName}-${version}-${os}.${ext}",
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "linux": {
+      "category": "Utility"
+    },
+    "nsis": {
+      "artifactName": "${productName}-Setup-${version}-${os}.${ext}"
+    },
+    "portable": {
+      "artifactName": "${productName}-Portable-${version}-${os}.${ext}"
+    }
+  },
+  "keywords": [],
+  "author": "Xzandro",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "electron": "3.0.3",
+    "electron-builder": "^20.40.2",
+    "electron-rebuild": "^1.8.4",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "prettier": "^1.17.1",
+    "webpack": "^3.12.0",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "electron-json-storage": "^4.1.6",
+    "electron-window-state": "^5.0.3",
+    "lodash": "^4.17.11",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "semantic-ui-react": "^0.87.1"
+  }
+}
