@@ -1,17 +1,14 @@
 {
   "name": "massyx-soundboard",
   "productName": "massyx Soundboard",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "This tool will give you easy access to the massyx Soundboard",
   "main": "./app/main.js",
   "scripts": {
     "start": "electron .",
     "rebuild": "electron-rebuild -f -w massyx-soundboard",
-    "pack": "build --dir",
-    "dist:win64": "build --x64",
-    "dist:win32": "build --ia32",
-    "dist:mac": "build",
-    "dist:linux": "build",
+    "pack": "webpack",
+    "dist": "build",
     "dev": "webpack --watch"
   },
   "build": {
@@ -20,7 +17,10 @@
     "artifactName": "${productName}-${version}-${os}.${ext}",
     "win": {
       "target": [
-        "nsis"
+        {
+          "target": "nsis",
+          "arch": "x64"
+        }
       ]
     },
     "mac": {

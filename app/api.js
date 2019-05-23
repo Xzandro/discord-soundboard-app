@@ -2,7 +2,7 @@ import request from 'request-promise';
 const { remote } = require('electron');
 let config = remote.getGlobal('config');
 
-const debug = true;
+const debug = false;
 const baseURL = debug ? 'http://localhost:3100' : 'http://sb.swop.one';
 
 export function requestApi(endpoint, method, qs = {}) {
