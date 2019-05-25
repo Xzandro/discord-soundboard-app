@@ -1,21 +1,36 @@
-import request from 'request-promise';
+import axios from 'axios';
 const { remote } = require('electron');
 let config = remote.getGlobal('config');
+
+const fs = window.require('fs');
 
 const debug = false;
 const baseURL = debug ? 'http://localhost:3100' : 'http://sb.swop.one';
 
-export function requestApi(endpoint, method, qs = {}) {
+export function requestApi(endpoint, method, qs = {}, data, formData) {
   qs.clientID = config.Config.App.clientID;
   const options = {
     method: method,
-    qs: qs,
+    params: qs,
     headers: {
       sbAuth: config.Config.App.token
     },
-    uri: `${baseURL}${endpoint}`,
-    json: true
+    url: `${baseURL}${endpoint}`
   };
 
-  return request(options);
+  if (data) {
+    options.body = data;
+  }
+
+  if (formData) {
+    let form_data = new FormData();
+
+    for (let key in formData) {
+      form_data.append(key, formData[key]);
+    }
+
+    options.data = form_data;
+  }
+
+  return axios(options);
 }

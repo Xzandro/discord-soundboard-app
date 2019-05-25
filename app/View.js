@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import Layout from './pages/Layout';
 import Buttons from './pages/Buttons';
+import Statistics from './pages/Statistics';
 import Settings from './pages/Settings';
 
 ReactDOM.render(
@@ -11,6 +12,7 @@ ReactDOM.render(
     <Layout>
       <Switch>
         <Route exact path="/" component={Buttons} />
+        <Route exact path="/statistics" component={Statistics} />
         <Route exact path="/settings" component={Settings} />
         <Redirect to="/" />
       </Switch>

@@ -3,8 +3,6 @@ import { withRouter } from 'react-router-dom';
 
 import { Segment, Menu, Icon, Button } from 'semantic-ui-react';
 
-import Head from '../components/Head';
-
 const appVersion = require('electron').remote.app.getVersion();
 
 class Layout extends React.Component {
@@ -35,6 +33,16 @@ class Layout extends React.Component {
             <Menu.Item name="buttons" link active={this.state.activeItem === 'buttons'} data-path="/" onClick={this.navigateFromElement.bind(this)}>
               <Icon name="home" />
               Buttons
+            </Menu.Item>
+            <Menu.Item
+              name="statistics"
+              link
+              active={this.state.activeItem === 'statistics'}
+              data-path="statistics"
+              onClick={this.navigateFromElement.bind(this)}
+            >
+              <Icon name="chart bar" />
+              Statistics
             </Menu.Item>
             <Menu.Item
               name="settings"
