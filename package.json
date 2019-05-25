@@ -1,7 +1,7 @@
 {
   "name": "massyx-soundboard",
   "productName": "massyx Soundboard",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "This tool will give you easy access to the massyx Soundboard",
   "main": "./app/main.js",
   "scripts": {
@@ -39,6 +39,11 @@
   "keywords": [],
   "author": "Xzandro",
   "license": "Apache-2.0",
+  "bugs": "https://github.com/Xzandro/discord-soundboard-app/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xzandro/discord-soundboard-app.git"
+  },
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
@@ -61,14 +66,13 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "electron-json-storage": "^4.1.6",
     "electron-window-state": "^5.0.3",
     "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.4",
     "semantic-ui-react": "^0.87.1"
   }
 }

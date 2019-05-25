@@ -59,3 +59,13 @@
 .popup .ui.card .content {
   padding: 0.5em 0.5em;
 }
+
+.statistics .ui.divided.ordered.list .list>.item, .statistics .ui.divided.ordered.list>.item  {
+  padding-left: 2.25rem;
+}
+.statistics .list .item::before {
+  margin-top: 8px;
+}
+.statistics .list .item .icon {
+  padding-left: 10px;
+}

@@ -38,6 +38,7 @@ class ButtonCategory extends React.Component {
                     update={this.props.update}
                     updateUser={this.props.updateUser}
                     user={this.props.user}
+                    toggleSoundSettingsModal={this.props.toggleSoundSettingsModal}
                   />
                 );
               })

@@ -8,21 +8,27 @@ class CustomButton extends React.Component {
     super();
   }
 
-  play(e, element) {
+  playFile(e, element) {
     requestApi('/play', 'get', { file: this.props.button._id }).then(buttons => {
-      this.props.update(buttons);
+      this.props.update(buttons.data);
+    });
+  }
+
+  deleteFile(e, element) {
+    requestApi('/button', 'delete', { file: this.props.button._id }).then(buttons => {
+      this.props.update(buttons.data);
     });
   }
 
   addFavorite(fileID) {
     requestApi('/user/favorites', 'post', { file: this.props.button._id }).then(user => {
-      this.props.updateUser(user);
+      this.props.updateUser(user.data);
     });
   }
 
   removeFavorite(fileID) {
     requestApi('/user/favorites', 'delete', { file: this.props.button._id }).then(user => {
-      this.props.updateUser(user);
+      this.props.updateUser(user.data);
     });
   }
 
@@ -31,7 +37,7 @@ class CustomButton extends React.Component {
     return (
       <Popup
         trigger={
-          <Button basic color={this.props.color} onClick={() => this.play()}>
+          <Button basic color={this.props.color} onClick={() => this.playFile()}>
             {this.props.button.name}
           </Button>
         }
@@ -40,11 +46,17 @@ class CustomButton extends React.Component {
       >
         <Card>
           <Card.Content>
+            {(this.props.user.admin || this.props.user._id === this.props.button.uploadedBy) && (
+              <React.Fragment>
+                <Button circular floated={'right'} icon="delete" onClick={() => this.deleteFile()} />
+                <Button circular floated={'right'} icon="edit" onClick={() => this.props.toggleSoundSettingsModal(this.props.button._id)} />
+              </React.Fragment>
+            )}
             <Card.Header>{this.props.button.name}</Card.Header>
             <Card.Meta>{this.props.button.category && this.props.button.category.name ? this.props.button.category.name : 'No category'}</Card.Meta>
             <Card.Description>{this.props.button.description || 'No description'}</Card.Description>
           </Card.Content>
-          <Button.Group fluid>
+          <Button.Group>
             <Button
               color="red"
               content="Play"
